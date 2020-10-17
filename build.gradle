@@ -7,9 +7,18 @@ buildscript {
         mavenLocal()
         maven { url "https://repo.spring.io/snapshot" }
         maven { url "https://repo.spring.io/milestone" }
+
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+//        classpath group: 'org.hibernate.gradle.tools',
+//                name: 'hibernatetools-gradle-plugin',
+//                version: '1.2.5-CUSTOM'
+
+        classpath "gradle.plugin.org.hibernate.gradle.tools:hibernatetools-gradle-plugin:1.2.5"
 
     }
 }
@@ -35,6 +44,10 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
     testCompile('org.springframework.boot:spring-boot-starter-test')
     compile 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    compile 'org.hibernate:hibernate-core'
+    compile 'org.apache.httpcomponents:httpclient'
+    runtime 'mysql:mysql-connector-java'
 
     runtime 'org.springframework.boot:spring-boot-devtools'
 }
